@@ -284,7 +284,7 @@ int main(int argc, char *argv[]) {
 #endif /* CGICDEBUG */
 		}
 	}
-	result = cgiMain();
+	result = cgiMain(argc, argv);
 	cgiFreeResources();
 	return result;
 }
