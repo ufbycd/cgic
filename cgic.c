@@ -67,6 +67,9 @@ char *cgiAccept;
 char *cgiUserAgent;
 char *cgiReferrer;
 
+int cgiArgc;
+char **cgiArgv;
+
 FILE *cgiIn;
 FILE *cgiOut;
 
@@ -123,6 +126,10 @@ int main(int argc, char *argv[]) {
 	int result;
 	char *cgiContentLengthString;
 	char *e;
+
+	cgiArgc = argc;
+	cgiArgv = argv;
+
 	cgiSetupConstants();
 	cgiGetenv(&cgiServerSoftware, "SERVER_SOFTWARE");
 	cgiGetenv(&cgiServerName, "SERVER_NAME");
@@ -284,7 +291,7 @@ int main(int argc, char *argv[]) {
 #endif /* CGICDEBUG */
 		}
 	}
-	result = cgiMain(argc, argv);
+	result = cgiMain();
 	cgiFreeResources();
 	return result;
 }

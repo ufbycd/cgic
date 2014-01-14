@@ -39,6 +39,9 @@ extern char *cgiAccept;
 extern char *cgiUserAgent;
 extern char *cgiReferrer;
 
+extern int cgiArgc;
+extern char **cgiArgv;
+
 /* Cookies as sent to the server. You can also get them
 	individually, or as a string array; see the documentation. */
 extern char *cgiCookie;
@@ -197,7 +200,7 @@ typedef enum {
 extern cgiEnvironmentResultType cgiWriteEnvironment(char *filename);
 extern cgiEnvironmentResultType cgiReadEnvironment(char *filename);
 
-extern int cgiMain(int argc, char *argv[]);
+extern int cgiMain();
 
 extern cgiFormResultType cgiFormEntries(
 	char ***ptrToStringArray);
